@@ -239,7 +239,7 @@ public class IdGeneratorConcurrencyTest {
 
 如果启用了 Redis，确保 Redis 服务已正确启动，并且可以通过 `application.properties` 的配置文件访问。
 
-项目默认端口为 `8080`，可通过配置文件修改。
+项目默认端口为 `50234`，可通过配置文件修改。
 
 ## 贡献
 
