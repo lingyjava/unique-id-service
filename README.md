@@ -34,7 +34,7 @@
 #### 克隆代码仓库
 
 ```bash
-git clone https://github.com/your-repo/id-generator.git
+git clone https://github.com/lingyjava/unique-id-service.git
 cd id-generator
 ```
 
