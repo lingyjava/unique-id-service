@@ -58,7 +58,7 @@ mvn spring-boot:run
 
 ```properties
 # 服务端口
-server.port=8080
+server.port=50234
 spring.application.name=unique-id-service
 
 # 雪花算法机器 ID，运行在不同机器上应不相同
@@ -74,6 +74,47 @@ spring.data.redis.password=
 
 # 定义允许的 Redis Key 前缀，使用逗号分隔的字符串
 id-generator.valid-key-prefixes=order,product
+```
+
+## Jar包启动
+
+### 1. 确保已经构建了 JAR 包
+
+通过以下 Maven 命令构建项目并打包：
+
+```bash
+mvn clean package
+```
+
+### 2. 启动 JAR 包
+
+通过以下命令启动打包好的 JAR 文件：
+
+```bash
+nohup java -jar Unique-id-service-1.0.0-RELEASE.jar > Unique-id-service-log.txt &
+```
+
+- `Unique-id-service-1.0.0-RELEASE.jar` 为 JAR 的包名，常见的为版本号可能不同，需替换为要启动的 JAR 包名称。
+- `Unique-id-service-log.txt` 为日志输出文件，可按需替换。
+
+### 3. 停止 JAR 包
+
+**查找进程 ID（PID）：** 使用 ps 命令查找 Java 进程的 PID：
+
+```bash
+ps -ef | grep java 
+```
+
+**杀死进程：** 找到 JAR 包运行的 PID 后，使用 kill 命令停止进程：
+
+```bash
+kill <PID>
+```
+
+**强制停止（如果 kill 命令无效）：** 如果进程没有正常停止，可以使用强制终止：
+
+```bash
+kill -9 <PID>
 ```
 
 ## 接口文档
