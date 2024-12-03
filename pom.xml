@@ -6,7 +6,7 @@
 
     <groupId>com.lingyuan</groupId>
     <artifactId>unique-id-service</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0.RELEASE</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -40,5 +40,23 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>Unique-id-service-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <!--构建可执行的JAR -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
